@@ -1,13 +1,14 @@
 //
 //  AppDelegate.swift
-//  test
+//  SegueApp
 //
-//  Created by Ceren ÇABIK on 2.03.2024.
+//  Created by Atil Samancioglu on 12.07.2019.
+//  Copyright © 2019 Atil Samancioglu. All rights reserved.
 //
 
 import UIKit
 
-@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
