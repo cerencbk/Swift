@@ -19,8 +19,7 @@ class ViewController: UIViewController {
         
             counter = 10
             timeLbl.text = "Time: \(counter)"
-            
-        
+             
         // bu fonsiyonu ekranda 10 dan geriye saymak için kullandık
          //   sleep fonsiyonu kullansaydık ekranda gözükmediği için ekranda saniyelik olarak uyutacak fakat ekranda da bu uyutmanın sonucunu görmek için sleep kullandık ve iiçnde de selectör kullandık ki içerisine şatlar ekledik
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerFunction), userInfo: nil, repeats: true)
