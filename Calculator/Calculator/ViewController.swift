@@ -29,6 +29,7 @@ class ViewController: UIViewController {
             }
         }
     }
+
     
     @IBAction func minusClicked(_ sender: Any) {
         if let firstNumber = Int(firstText.text!){
