@@ -6,7 +6,6 @@ class ViewController: UIViewController {
     var timer = Timer()
     var counter = 0
     
-    let save = UserDefaults.standard.object(forKey: "İmage")
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -25,13 +24,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        counter = 10
-        timeLabel.text = "Time: \(counter)"
-         
-    // bu fonsiyonu ekranda 10 dan geriye saymak için kullandık
-     //   sleep fonsiyonu kullansaydık ekranda gözükmediği için ekranda saniyelik olarak uyutacak fakat ekranda da bu uyutmanın sonucunu görmek için sleep kullandık ve iiçnde de selectör kullandık ki içerisine şatlar ekledik
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerFunction), userInfo: nil, repeats: true)
         
         scoreLabel.text = "Score: \(score)"
               
@@ -69,27 +61,49 @@ class ViewController: UIViewController {
         kenny7.addGestureRecognizer(recognizer7)
         kenny8.addGestureRecognizer(recognizer8)
         kenny9.addGestureRecognizer(recognizer9)
+        
+        //Timer
+        
+        counter = 10
+        timeLabel.text = "Time: \(counter)"
+         
+    // bu fonsiyonu ekranda 10 dan geriye saymak için kullandık
+     //   sleep fonsiyonu kullansaydık ekranda gözükmediği için ekranda saniyelik olarak uyutacak fakat ekranda da bu uyutmanın sonucunu görmek için sleep kullandık ve iiçnde de selectör kullandık ki içerisine şatlar ekledik
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
                 
     }
     
-    @objc func timerFunction(){
+    @objc func countDown(){
         timeLabel.text = "Timer: \(counter)"
         counter -= 1
         
         if counter == 0 {
             //invaidate fonsiyonu durdurmaya yarıyor
             timer.invalidate()
-            timeLabel.text = "Time's Over"
+            
+            //Allet
+        
+            let alert = UIAlertController(title:"Time is Up", message: "Do want to play game? ", preferredStyle: UIAlertController.Style.alert)
+            let okButton = UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil)
+            let replayeButton = UIAlertAction(title: "Replay", style: UIAlertAction.Style.default) {
+                (UIAlertAction) in
+                // REplay Button
+            }
+            alert.addAction(okButton)
+            alert.addAction(replayeButton)
+            self.present(alert, animated: true, completion: nil)
         }
-        
-        
     }
 
-    
     @objc func increaseScore(){
         score += 1
         scoreLabel.text = "Score: \(score)"
     }
     
+    
 
 }
+
+
+
+
