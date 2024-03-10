@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51ADBF972B9E13FC001F1FDB /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ADBF962B9E13FC001F1FDB /* DetailVC.swift */; };
 		51DD7DC32B9E01D100466C16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DD7DC22B9E01D100466C16 /* AppDelegate.swift */; };
 		51DD7DC52B9E01D100466C16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DD7DC42B9E01D100466C16 /* SceneDelegate.swift */; };
 		51DD7DC72B9E01D100466C16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DD7DC62B9E01D100466C16 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51ADBF962B9E13FC001F1FDB /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		51DD7DBF2B9E01D100466C16 /* LandMarkBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandMarkBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51DD7DC22B9E01D100466C16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51DD7DC42B9E01D100466C16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				51DD7DC22B9E01D100466C16 /* AppDelegate.swift */,
 				51DD7DC42B9E01D100466C16 /* SceneDelegate.swift */,
 				51DD7DC62B9E01D100466C16 /* ViewController.swift */,
+				51ADBF962B9E13FC001F1FDB /* DetailVC.swift */,
 				51DD7DC82B9E01D100466C16 /* Main.storyboard */,
 				51DD7DCB2B9E01D200466C16 /* Assets.xcassets */,
 				51DD7DCD2B9E01D200466C16 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51DD7DC72B9E01D100466C16 /* ViewController.swift in Sources */,
+				51ADBF972B9E13FC001F1FDB /* DetailVC.swift in Sources */,
 				51DD7DC32B9E01D100466C16 /* AppDelegate.swift in Sources */,
 				51DD7DC52B9E01D100466C16 /* SceneDelegate.swift in Sources */,
 			);
