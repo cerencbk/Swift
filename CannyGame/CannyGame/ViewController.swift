@@ -5,6 +5,9 @@ class ViewController: UIViewController {
     var score = 0
     var timer = Timer()
     var counter = 0
+    var kennyArray = [UIImageView()]
+    var hideTimer = Timer()
+    var highScore = 0
     
     
     @IBOutlet weak var timeLabel: UILabel!
@@ -26,7 +29,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         scoreLabel.text = "Score: \(score)"
-              
+        
+        //Highscore check
+        let storedHighScore = UserDefaults.standard.object(forKey: "highscore")
+        if storedHighScore ==  nil{
+            highScore = 0
+            highScoreLabel.text = "Highscore: \(highScore)"
+        }
+        
+        if let newScore = storedHighScore as? Int{
+            highScore = newScore
+            highScoreLabel.text = "Highscore: \(highScore)"
+        }
+        
+        
         // Resimlerin tıklanılabilir olması için
         kenny1.isUserInteractionEnabled = true
         kenny2.isUserInteractionEnabled = true
@@ -62,15 +78,44 @@ class ViewController: UIViewController {
         kenny8.addGestureRecognizer(recognizer8)
         kenny9.addGestureRecognizer(recognizer9)
         
-        //Timer
+        kennyArray = [kenny1,kenny2,kenny3,kenny4,kenny5,kenny6,kenny7,kenny8,kenny9]
+//        kennyArray.append(kenny1)  bu şekilde de dizi tek tek tanımlanabilirdi
         
+        
+//Timer start
         counter = 10
         timeLabel.text = "Time: \(counter)"
          
     // bu fonsiyonu ekranda 10 dan geriye saymak için kullandık
      //   sleep fonsiyonu kullansaydık ekranda gözükmediği için ekranda saniyelik olarak uyutacak fakat ekranda da bu uyutmanın sonucunu görmek için sleep kullandık ve iiçnde de selectör kullandık ki içerisine şatlar ekledik
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
-                
+        hideTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(hideKenny), userInfo: nil, repeats: true)
+          
+        hideKenny()
+    }
+    //didload end
+    
+    @objc func hideKenny(){
+        for kenny in kennyArray{
+            kenny.isHidden = true
+        }
+        
+        let random = Int(arc4random_uniform(UInt32(kennyArray.count - 1)))
+        kennyArray[random].isHidden = false
+        
+        if counter == 1 {
+            // Resimlerin tıklanılabilir olması için
+            kenny1.isUserInteractionEnabled = false
+            kenny2.isUserInteractionEnabled = false
+            kenny3.isUserInteractionEnabled = false
+            kenny4.isUserInteractionEnabled = false
+            kenny5.isUserInteractionEnabled = false
+            kenny6.isUserInteractionEnabled = false
+            kenny7.isUserInteractionEnabled = false
+            kenny8.isUserInteractionEnabled = false
+            kenny9.isUserInteractionEnabled = false
+        }
+
     }
     
     @objc func countDown(){
@@ -80,20 +125,52 @@ class ViewController: UIViewController {
         if counter == 0 {
             //invaidate fonsiyonu durdurmaya yarıyor
             timer.invalidate()
+            hideTimer.invalidate()
+            
+            for kenny in kennyArray{
+                kenny.isHidden = false
+            }
+            
+            //High Score
+            if self.score > self.highScore{
+                self.highScore = self.score
+                highScoreLabel.text = "Highscore: \(highScore)"
+                UserDefaults.standard.setValue(self.highScore, forKey: "highscore")
+            }
+            
             
             //Allet
-        
             let alert = UIAlertController(title:"Time is Up", message: "Do want to play game? ", preferredStyle: UIAlertController.Style.alert)
             let okButton = UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil)
             let replayeButton = UIAlertAction(title: "Replay", style: UIAlertAction.Style.default) {
                 (UIAlertAction) in
-                // REplay Button
+                //Replay func
+                // Resimlerin tıklanılabilir olması için
+                self.kenny1.isUserInteractionEnabled = true
+                self.kenny2.isUserInteractionEnabled = true
+                self.kenny3.isUserInteractionEnabled = true
+                self.kenny4.isUserInteractionEnabled = true
+                self.kenny5.isUserInteractionEnabled = true
+                self.kenny6.isUserInteractionEnabled = true
+                self.kenny7.isUserInteractionEnabled = true
+                self.kenny8.isUserInteractionEnabled = true
+                self.kenny9.isUserInteractionEnabled = true
+                
+                self.score = 0
+                self.scoreLabel.text = "Score: \(self.score)"
+                self.counter = 10
+                self.timeLabel.text = String(self.counter)
+                
+                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.countDown), userInfo: nil, repeats: true)
+                self.hideTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.hideKenny), userInfo: nil, repeats: true)
+                
             }
             alert.addAction(okButton)
             alert.addAction(replayeButton)
             self.present(alert, animated: true, completion: nil)
         }
     }
+    //Timer end
 
     @objc func increaseScore(){
         score += 1
