@@ -64,7 +64,7 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
     }
     
     
-    //Bir row yani hücrenin bir sırası çeçildiğinde ne yapılması gerektiği
+    //Bir row yani hücrenin bir sırası seçildiğinde ne yapılması gerektiği
     //didselect diyerek aranabilir
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
