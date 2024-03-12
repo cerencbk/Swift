@@ -9,9 +9,16 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
+    var mySimpson = [Simpsoon]()
+    var chosenSimpson : Simpsoon?
     
     var SimpsoonBookNames = [String()]
     var SimpsoonBookImg = [UIImage()]
+    var SimpsoonBookJob = [String()]
+    
+    class simpsoon {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,30 +26,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
-        SimpsoonBookNames.append("Homer")
-        SimpsoonBookNames.append("Marge")
-        SimpsoonBookNames.append("Lisa")
-        SimpsoonBookNames.append("Bart")
+        let homer = Simpsoon(simpsonName: "Homer", simpsonJob: "Nuclear Safety", simpsonImage: UIImage(named: "homer.png")!)
+        let marge = Simpsoon(simpsonName: "Marge", simpsonJob: "HouseWife", simpsonImage: UIImage(named: "marge.png")!)
+        let bart = Simpsoon(simpsonName: "Bart", simpsonJob: "Student", simpsonImage: UIImage(named: "bart.png")!)
+        let lisa = Simpsoon(simpsonName: "Lisa", simpsonJob: "Student", simpsonImage: UIImage(named: "lisa.png")!)
         
-        SimpsoonBookImg.append(UIImage(named: "homer.png")!)
-        SimpsoonBookImg.append(UIImage(named: "marge.png")!)
-        SimpsoonBookImg.append(UIImage(named: "lisa.png")!)
-        SimpsoonBookImg.append(UIImage(named: "bart.png")!)
-        
-        
-        
+        mySimpson.append(homer)
+        mySimpson.append(marge)
+        mySimpson.append(bart)
+        mySimpson.append(lisa)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SimpsoonBookNames.count
+           return mySimpson.count
+       }
+       
+       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+           let cell = UITableViewCell()
+           cell.textLabel?.text = mySimpson[indexPath.row].name
+           return cell
+       }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        chosenSimpson = mySimpson[indexPath.row]
+        self.performSegue(withIdentifier: "toDetailVC", sender: nil)
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        var content = cell.defaultContentConfiguration()
-        content.text = SimpsoonBookNames[indexPath.row]
-        cell.contentConfiguration = content
-        return cell
-        
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailVC"{
+            let destinationVC = segue.destination as! detailVC
+            destinationVC.selectedSimpson = chosenSimpson
+        }
     }
 
 

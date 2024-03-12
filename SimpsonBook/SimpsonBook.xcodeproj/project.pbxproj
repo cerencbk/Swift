@@ -14,6 +14,7 @@
 		51B5C7352BA0887500E86CB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B5C7342BA0887500E86CB2 /* Assets.xcassets */; };
 		51B5C7382BA0887500E86CB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51B5C7362BA0887500E86CB2 /* LaunchScreen.storyboard */; };
 		51B5C7402BA08A3300E86CB2 /* detailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5C73F2BA08A3300E86CB2 /* detailVC.swift */; };
+		51B5C7442BA092F600E86CB2 /* simpsoons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5C7432BA092F600E86CB2 /* simpsoons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		51B5C7372BA0887500E86CB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51B5C7392BA0887500E86CB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51B5C73F2BA08A3300E86CB2 /* detailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailVC.swift; sourceTree = "<group>"; };
+		51B5C7432BA092F600E86CB2 /* simpsoons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simpsoons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				51B5C72D2BA0887300E86CB2 /* SceneDelegate.swift */,
 				51B5C72F2BA0887300E86CB2 /* ViewController.swift */,
 				51B5C73F2BA08A3300E86CB2 /* detailVC.swift */,
+				51B5C7432BA092F600E86CB2 /* simpsoons.swift */,
 				51B5C7312BA0887300E86CB2 /* Main.storyboard */,
 				51B5C7342BA0887500E86CB2 /* Assets.xcassets */,
 				51B5C7362BA0887500E86CB2 /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				51B5C7302BA0887300E86CB2 /* ViewController.swift in Sources */,
 				51B5C7402BA08A3300E86CB2 /* detailVC.swift in Sources */,
 				51B5C72C2BA0887300E86CB2 /* AppDelegate.swift in Sources */,
+				51B5C7442BA092F600E86CB2 /* simpsoons.swift in Sources */,
 				51B5C72E2BA0887300E86CB2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
