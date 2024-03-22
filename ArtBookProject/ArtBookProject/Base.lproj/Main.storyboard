@@ -48,7 +48,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zAo-rP-rdw">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zAo-rP-rdw">
                                 <rect key="frame" x="57" y="503" width="280" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="7bo-87-jOL"/>
@@ -56,7 +56,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sSX-do-DDe">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sSX-do-DDe">
                                 <rect key="frame" x="56" y="573" width="280" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="jtp-0j-4Qm"/>
@@ -64,7 +64,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hal-dP-TPd">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hal-dP-TPd">
                                 <rect key="frame" x="56" y="642" width="280" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="x4T-Be-gTl"/>
@@ -72,7 +72,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TrC-sx-BDw">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TrC-sx-BDw">
                                 <rect key="frame" x="93" y="704" width="207" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="ZE2-8Y-WFl"/>
@@ -83,7 +83,7 @@
                                     <action selector="saveButton:" destination="t0Q-Cv-kd2" eventType="touchUpInside" id="jDj-bH-YHi"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="select" translatesAutoresizingMaskIntoConstraints="NO" id="UtG-zw-Ovl">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="select" translatesAutoresizingMaskIntoConstraints="NO" id="UtG-zw-Ovl">
                                 <rect key="frame" x="-67" y="103" width="527" height="352"/>
                             </imageView>
                         </subviews>
@@ -113,6 +113,7 @@
                         <outlet property="ArtistText" destination="sSX-do-DDe" id="lHI-T3-1Xn"/>
                         <outlet property="imageView" destination="UtG-zw-Ovl" id="dZf-dt-55U"/>
                         <outlet property="nameText" destination="zAo-rP-rdw" id="9r3-jW-WAV"/>
+                        <outlet property="saveButton" destination="TrC-sx-BDw" id="iur-b9-8Ue"/>
                         <outlet property="yearText" destination="hal-dP-TPd" id="CoN-06-5bE"/>
                     </connections>
                 </viewController>
